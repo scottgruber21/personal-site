@@ -1,0 +1,32 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Navigation from '../components/Navigation.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body class="bg-white text-zinc-900 antialiased min-h-screen flex flex-col selection:bg-blue-100 selection:text-blue-900">
+    
+    <Navigation />
+
+    <main class="flex-grow max-w-4xl mx-auto w-full px-6 sm:px-8 py-16">
+      <slot />
+    </main>
+
+    <footer class="py-12 text-center text-sm font-medium text-zinc-400">
+      &copy; {new Date().getFullYear()} Gruber Analytics. All rights reserved.
+    </footer>
+
+  </body>
+</html>

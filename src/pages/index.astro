@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+import { getCollection } from 'astro:content';
+
+const pageTitle = "Gruber Analytics | MarTech Solutions";
+const pageDescription = "Technical Analytics and MarTech portfolio.";
+
+// Fetch only the case studies marked as 'featured' and sort by date
+const featuredWork = await getCollection('case-studies', ({ data }) => {
+  return data.featured === true;
+});
+
+// Sort by date (newest first)
+featuredWork.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  
+  <section class="flex flex-col items-center justify-center text-center pt-20 pb-24 border-b border-zinc-100">
+    <h1 class="text-5xl md:text-7xl font-semibold tracking-tighter text-zinc-900 mb-6">
+      Data, refined.
+    </h1>
+    <p class="text-xl md:text-2xl text-zinc-500 font-medium max-w-2xl mb-10 leading-relaxed">
+      Architecting high-performance MarTech stacks and transforming raw analytics into strategic leverage.
+    </p>
+    <div class="flex gap-4">
+      <a href="#work" class="bg-zinc-900 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-zinc-800 transition-colors">
+        View Case Studies
+      </a>
+      <a href="/contact" class="bg-zinc-100 text-zinc-900 px-6 py-3 rounded-full text-sm font-medium hover:bg-zinc-200 transition-colors">
+        Get in touch
+      </a>
+    </div>
+  </section>
+
+  <section id="work" class="py-24">
+    <div class="flex items-center justify-between mb-12">
+      <h2 class="text-2xl font-semibold tracking-tight text-zinc-900">Featured Work</h2>
+      <a href="/case-studies" class="text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors">
+        View all &rarr;
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {featuredWork.map((study) => (
+        <CaseStudyCard 
+          title={study.data.title}
+          description={study.data.description}
+          metric={study.data.metric}
+          href={`/case-studies/${study.id}`} 
+        />
+      ))}
+    </div>
+  </section>
+
+</BaseLayout>
