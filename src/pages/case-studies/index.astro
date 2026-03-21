@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CaseStudyCard from '../../components/CaseStudyCard.astro';
+
+// Fetch all case studies and sort by date (newest first)
+const allCaseStudies = await getCollection('case-studies');
+allCaseStudies.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const pageTitle = "Case Studies | Gruber Analytics";
+const pageDescription = "A deep dive into technical analytics, MarTech architecture, and data-driven results.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <section class="py-12">
+    {/* Page Header */}
+    <header class="mb-16">
+      <h1 class="text-4xl md:text-5xl font-semibold tracking-tighter text-zinc-900 mb-6">
+        Case Studies
+      </h1>
+      <p class="text-xl text-zinc-500 font-medium max-w-2xl leading-relaxed">
+        Proving ROI through technical precision. A collection of projects focusing on data integrity, attribution, and marketing automation.
+      </p>
+    </header>
+
+    {/* The Full Grid */}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {allCaseStudies.map((study) => (
+        <CaseStudyCard 
+          title={study.data.title}
+          description={study.data.description}
+          metric={study.data.metric}
+          href={`/case-studies/${study.id}`} 
+        />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

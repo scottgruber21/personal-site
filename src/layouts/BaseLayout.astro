@@ -6,15 +6,16 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description: string;
+  sd?: object; // 1. Add this so the IDE knows 'sd' is allowed
 }
 
-const { title, description } = Astro.props;
+const { title, description, sd } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={title} description={description} sd={sd} />
   </head>
   <body class="bg-white text-zinc-900 antialiased min-h-screen flex flex-col selection:bg-blue-100 selection:text-blue-900">
     

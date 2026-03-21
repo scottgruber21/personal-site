@@ -1,2 +1,18 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+@theme {
+  /* This ensures our 'tracking-tighter' is extra crisp, similar to SF Pro Display */
+  --letter-spacing-tighter: -0.05em;
+  --letter-spacing-tight: -0.02em;
+}
+
+html {
+  /* Smooth scrolling for an app-like feel */
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Ensures the system font is used, hitting that San Francisco font on Macs/iPhones */
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}

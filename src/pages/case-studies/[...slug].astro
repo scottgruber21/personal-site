@@ -2,7 +2,6 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-// 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
   const caseStudies = await getCollection('case-studies');
   return caseStudies.map(entry => ({
@@ -10,30 +9,57 @@ export async function getStaticPaths() {
   }));
 }
 
-// 2. Get the entry data from the props
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": entry.data.title,
+  "description": entry.data.description,
+  "datePublished": entry.data.pubDate.toISOString(),
+  "author": { "@type": "Person", "name": "Gruber" }
+};
 ---
 
-<BaseLayout title={entry.data.title} description={entry.data.description}>
-  <article class="max-w-2xl mx-auto">
-    <header class="mb-12">
-      <div class="text-blue-600 font-semibold mb-4 tracking-wide">
-        {entry.data.metric}
+<BaseLayout title={entry.data.title} description={entry.data.description} sd={schema}>
+  <article class="max-w-5xl mx-auto">
+    <header class="mb-16 border-b border-zinc-100 pb-16">
+      <div class="text-blue-600 font-semibold mb-4 tracking-wide uppercase text-xs">
+        Case Study
       </div>
-      <h1 class="text-4xl md:text-5xl font-bold tracking-tighter text-zinc-900 mb-6">
+      <h1 class="text-5xl md:text-6xl font-bold tracking-tighter text-zinc-900 mb-8 max-w-3xl">
         {entry.data.title}
       </h1>
-      <p class="text-xl text-zinc-500 font-medium leading-relaxed">
+      <p class="text-2xl text-zinc-500 font-medium leading-relaxed max-w-2xl">
         {entry.data.description}
       </p>
     </header>
 
-    {/* The actual Markdown content gets rendered here */}
-    <div class="prose prose-zinc prose-lg max-w-none 
-                prose-headings:tracking-tight prose-headings:font-semibold 
-                prose-p:text-zinc-600 prose-p:leading-relaxed">
-      <Content />
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+      <aside class="lg:col-span-4 order-last lg:order-first">
+        <div class="sticky top-24 space-y-10">
+          <div>
+            <h2 class="text-sm font-bold text-zinc-900 uppercase tracking-widest mb-4">Key Result</h2>
+            <p class="text-4xl font-semibold tracking-tight text-blue-600">{entry.data.metric}</p>
+          </div>
+          
+          <div>
+            <h2 class="text-sm font-bold text-zinc-900 uppercase tracking-widest mb-4">Technologies</h2>
+            <div class="flex flex-wrap gap-2">
+              {entry.data.tags.map(tag => (
+                <span class="px-3 py-1 bg-zinc-100 text-zinc-600 rounded-full text-xs font-medium">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <div class="lg:col-span-8 prose prose-zinc prose-lg max-w-none">
+        <Content />
+      </div>
     </div>
   </article>
 </BaseLayout>

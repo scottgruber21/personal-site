@@ -4,11 +4,12 @@ interface Props {
   title: string;
   description: string;
   image?: string;
+  sd?: object; // New prop for Structured Data
 }
 
 // Ensure Astro.site is set in your astro.config.mjs for the canonical URL to work perfectly!
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url);
-const { title, description, image = '/favicon.svg' } = Astro.props;
+const { title, description, image = '/favicon.svg', sd } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -38,3 +39,7 @@ const { title, description, image = '/favicon.svg' } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+{sd && (
+  <script type="application/ld+json" set:html={JSON.stringify(sd)} />
+)}

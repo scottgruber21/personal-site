@@ -13,9 +13,18 @@ const featuredWork = await getCollection('case-studies', ({ data }) => {
 
 // Sort by date (newest first)
 featuredWork.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Scott Gruber",
+  "url": Astro.site,
+  "jobTitle": "Technical Analytics Consultant",
+  "knowsAbout": ["MarTech", "Google Tag Manager", "Digital Analytics", "Data Privacy"]
+};
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription}>
+<BaseLayout title={pageTitle} description={pageDescription} sd={schema}>
   
   <section class="flex flex-col items-center justify-center text-center pt-20 pb-24 border-b border-zinc-100">
     <h1 class="text-5xl md:text-7xl font-semibold tracking-tighter text-zinc-900 mb-6">

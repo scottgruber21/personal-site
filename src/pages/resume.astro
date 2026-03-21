@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = "Resume | Scott Gruber";
+const pageDescription = "Digital Marketing & Technical Analytics Professional Resume.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <article class="max-w-3xl mx-auto py-12">
+    
+    {/* Header & Download Button */}
+    <header class="flex flex-col md:flex-row md:items-end justify-between border-b border-zinc-100 pb-10 mb-12 gap-6">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tighter text-zinc-900 mb-2">
+          Scott Gruber
+        </h1>
+        <p class="text-xl text-zinc-500 font-medium tracking-tight">
+          Digital Marketing & Technical Analytics Professional
+        </p>
+        <div class="flex flex-wrap gap-x-4 gap-y-2 mt-4 text-sm text-zinc-500">
+          <span>Manville, NJ 08835</span>
+          <span class="hidden md:inline">&bull;</span>
+          <a href="tel:908-507-6744" class="hover:text-blue-600 transition-colors">908-507-6744</a>
+          <span class="hidden md:inline">&bull;</span>
+          <a href="mailto:scott@scottgruber.net" class="hover:text-blue-600 transition-colors">scott@scottgruber.net</a>
+          <span class="hidden md:inline">&bull;</span>
+          <a href="https://linkedin.com/in/scottfgruber/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 transition-colors">LinkedIn</a>
+        </div>
+      </div>
+      
+      {/* PDF Download Button */}
+      <a 
+        href="/scott-gruber-resume.pdf" 
+        download
+        class="inline-flex items-center justify-center bg-zinc-900 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-zinc-800 transition-colors whitespace-nowrap"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 mr-2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+        </svg>
+        Download PDF
+      </a>
+    </header>
+
+    {/* Using Prose for clean, effortless formatting of the document body */}
+    <div class="prose prose-zinc prose-lg max-w-none 
+                prose-h2:text-xl prose-h2:uppercase prose-h2:tracking-widest prose-h2:text-zinc-400 prose-h2:mt-16 prose-h2:mb-8
+                prose-h3:text-xl prose-h3:font-bold prose-h3:tracking-tight prose-h3:text-zinc-900 prose-h3:mt-8 prose-h3:mb-2
+                prose-p:text-zinc-600 prose-p:leading-relaxed prose-p:text-base
+                prose-li:text-zinc-600 prose-li:text-base">
+
+      <h2>Professional Summary</h2>
+      <p>
+        Technical Marketer and Web Developer with over 8 years of experience building data-driven growth systems. Specialized in combining marketing strategy and backend execution. Proven track record of auditing SEO architecture, restoring broken API integrations, and automating reporting via SQL and Python. Expert in managing the full lifecycle of digital ecosystems, from site migration to lead-capture optimization in CRM environments.
+      </p>
+
+      <h2>Technical Core</h2>
+      <ul>
+        <li><strong>Data & Analysis:</strong> SQL, Tableau, Looker Studio, Google Analytics (GA4), Search Console, Tag Manager (GTM).</li>
+        <li><strong>Web Development:</strong> React, Python, JavaScript, PHP, HTML/CSS, WordPress, Sitefinity.</li>
+        <li><strong>MarTech & Automation:</strong> Microsoft Dynamics CRM, HubSpot, Zapier, MailChimp, Optimizely.</li>
+        <li><strong>Design:</strong> Adobe InDesign, Photoshop, Illustrator.</li>
+      </ul>
+
+      <h2>Professional Experience</h2>
+
+      <div class="mb-10">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+          <h3 class="!mt-0 !mb-0">Digital Consultant & Freelance Web Developer</h3>
+          <span class="text-sm font-medium text-blue-600 tracking-wide">Feb 2022 – Present</span>
+        </div>
+        <ul class="mt-2">
+          <li>Restored functionality to several broken API integrations between custom web forms and legacy SQL databases for small business clients.</li>
+          <li>Executed a targeted engagement campaign for Star Gas Partners focused on high-traffic seasonal promotion landing pages. Performed significant content updates and technical audits to ensure performance during peak customer acquisition windows.</li>
+          <li>Scripted Python automation to scrape competitor data and aggregate results into Looker Studio, removing the need for manual data entry and third-party SaaS costs.</li>
+          <li>Utilized Search Console and Screaming Frog to identify canonical errors and site-speed bottlenecks for freelance clients, typically resulting in double-digit organic traffic recovery.</li>
+        </ul>
+      </div>
+
+      <div class="mb-10">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+          <h3 class="!mt-0 !mb-0">Integrated Computer Services, Inc. <span class="text-zinc-400 font-normal text-base ml-2">Digital Marketing Manager (Contract)</span></h3>
+          <span class="text-sm font-medium text-zinc-500 tracking-wide">July 2024 – Oct 2024</span>
+        </div>
+        <ul class="mt-2">
+          <li>Increased website search engine traffic by 50% YoY by auditing technical SEO errors and repurposing underperforming content.</li>
+          <li>Mapped the architecture for a WordPress site migration, prioritizing URL redirects and SEO-first metadata to prevent ranking loss during the transition.</li>
+        </ul>
+      </div>
+
+      <div class="mb-10">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+          <h3 class="!mt-0 !mb-0">Revenue Cycle Coding Strategies <span class="text-zinc-400 font-normal text-base ml-2">Marketing Systems Manager</span></h3>
+          <span class="text-sm font-medium text-zinc-500 tracking-wide">Feb 2022 – Feb 2024</span>
+        </div>
+        <ul class="mt-2">
+          <li>Managed the end-to-end redesign of three brand websites, which increased organic traffic by 45% and decreased bounce rates by 30%.</li>
+          <li>Hard-coded landing pages that raised lead capture rates by 55% compared to legacy templates.</li>
+          <li>Mapped web form fields to Microsoft Dynamics CRM, automating the lead routing process and cutting administrative response time by 40%.</li>
+        </ul>
+      </div>
+
+      <div class="mb-10">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+          <h3 class="!mt-0 !mb-0">LIXIL Water Technology Americas <span class="text-zinc-400 font-normal text-base ml-2">Digital Marketing & Ecommerce Specialist</span></h3>
+          <span class="text-sm font-medium text-zinc-500 tracking-wide">June 2017 – Feb 2022</span>
+        </div>
+        <ul class="mt-2">
+          <li>Directed regional SEO strategy, generating a 67% increase in organic traffic and a 40% improvement in keyword rankings within a six-month window.</li>
+          <li>Shifted email operations to HubSpot, reducing manual list management and increasing customer engagement by 35%.</li>
+          <li>Built and maintained Tableau and Looker Studio dashboards to consolidate disparate sales and traffic KPIs into a single source of truth for leadership.</li>
+          <li>Automated repetitive reporting tasks using Python and JavaScript, which reclaimed over 1,000 work hours and eliminated $10,000 in external consultant fees.</li>
+        </ul>
+      </div>
+
+      <div class="mb-10">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+          <h3 class="!mt-0 !mb-0">Star Gas Partners <span class="text-zinc-400 font-normal text-base ml-2">Digital Marketing Specialist</span></h3>
+          <span class="text-sm font-medium text-zinc-500 tracking-wide">Dec 2014 – June 2017</span>
+        </div>
+        <ul class="mt-2">
+          <li>Managed technical SEO and content updates for a portfolio of 15+ brand websites.</li>
+          <li>Led the migration of six legacy sites to the Sitefinity CMS, ensuring data integrity and site uptime during the transition.</li>
+          <li>Improved SEM landing page conversion rates by 50% through iterative A/B testing and design adjustments.</li>
+        </ul>
+      </div>
+
+      <h2>Education & Certifications</h2>
+      <ul>
+        <li><strong>B.A. in Journalism / Political Science</strong> – Rutgers University</li>
+        <li><strong>Google Analytics Individual Qualification (GAIQ)</strong></li>
+        <li><strong>Google Ads Search Certification</strong></li>
+        <li><strong>Test of Proficiency in Korean (TOPIK) Level 2</strong> – Basic reading and listening comprehension.</li>
+      </ul>
+
+      <h2>Additional Experience</h2>
+      <div class="mb-10">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+          <h3 class="!mt-0 !mb-0">Various School Districts <span class="text-zinc-400 font-normal text-base ml-2">Substitute Teacher</span></h3>
+          <span class="text-sm font-medium text-zinc-500 tracking-wide">Sept 2024 – Present</span>
+        </div>
+        <ul class="mt-2">
+          <li>Facilitating classroom instruction and maintaining student engagement for various school districts.</li>
+        </ul>
+      </div>
+
+    </div>
+  </article>
+</BaseLayout>
