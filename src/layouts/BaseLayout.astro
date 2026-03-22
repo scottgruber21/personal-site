@@ -1,12 +1,13 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro'; // <-- Import the new footer
 import '../styles/global.css';
 
 interface Props {
   title: string;
   description: string;
-  sd?: object; // 1. Add this so the IDE knows 'sd' is allowed
+  sd?: object;
 }
 
 const { title, description, sd } = Astro.props;
@@ -25,9 +26,8 @@ const { title, description, sd } = Astro.props;
       <slot />
     </main>
 
-    <footer class="py-12 text-center text-sm font-medium text-zinc-400">
-      &copy; {new Date().getFullYear()} Gruber Analytics. All rights reserved.
-    </footer>
+    {/* Replace the old footer with the new component */}
+    <Footer />
 
   </body>
 </html>
