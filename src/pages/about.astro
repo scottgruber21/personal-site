@@ -1,48 +1,77 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "About | Scott Gruber";
-const pageDescription = "Learn more about the person behind the analytics.";
+const pageDescription = "Learn more about the person behind the website.";
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
   <article class="max-w-5xl mx-auto py-12">
-    
     <header class="mb-16">
-      <h1 class="text-4xl md:text-6xl font-bold tracking-tighter text-zinc-900 mb-6">
-        Beyond the data.
+      <h1
+        class="text-4xl md:text-6xl font-bold tracking-tighter text-zinc-900 mb-6"
+      >
+        My background isn't what you'd expect.
       </h1>
-      <p class="text-xl md:text-2xl text-zinc-500 font-medium leading-relaxed max-w-2xl">
-        I believe the best technical architectures are built by people who understand how to communicate with humans first.
+      <p
+        class="text-xl md:text-2xl text-zinc-500 font-medium leading-relaxed max-w-2xl"
+      >
+        The journalism degree that became a technical superpower.
       </p>
     </header>
 
     <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
-      
       {/* The Content */}
-      <div class="md:col-span-7 prose prose-zinc prose-lg max-w-none 
+      <div
+        class="md:col-span-7 prose prose-zinc prose-lg max-w-none
                   prose-h2:text-2xl prose-h2:tracking-tight prose-h2:mt-12
-                  prose-p:text-zinc-600 prose-p:leading-relaxed">
-        
+                  prose-p:text-zinc-600 prose-p:leading-relaxed"
+      >
         <p>
-          My journey into technical analytics didn't start in a computer science lab—it started in Journalism and Political Science at Rutgers University. That background taught me how to ask the right questions, investigate anomalies, and most importantly, translate complex findings into stories that drive action.
+          My journey into technical analytics didn't start in a computer science
+          lab, but in Journalism and Political Science courses at Rutgers
+          University. That background taught me how to ask the right questions,
+          investigate anomalies, and most importantly, translate complex
+          findings into stories that drive action.
+        </p>
+        <p>
+          That lens has shaped everything I've done in digital marketing over
+          the past 10 years.
         </p>
 
-        <h2>The Bridge Between Tech and Marketing</h2>
+        <h2>What I actually do</h2>
         <p>
-          Over the past 8 years, I've found my niche acting as the translator between marketing visionaries and backend engineers. Whether it's repairing broken API integrations, migrating legacy CMS platforms, or writing Python scripts to automate tedious reporting, my goal is always the same: remove the friction so teams can do their best work.
+          I work across the full stack of digital marketing, including SEO strategy, web
+          development, CRM configuration, analytics, and content. I'm
+          comfortable in a spreadsheet, in a codebase, and in a stakeholder
+          meeting. Most of the time, the job is connecting those three worlds so
+          nothing falls through the cracks.
+        </p>
+        <p>
+          Past projects include migrating legacy CMS platforms without dropping
+          rankings, mapping web form fields to CRM pipelines, building Tableau
+          dashboards for executive teams, and writing Python automations that
+          reclaimed real hours from real people's weeks.
         </p>
 
-        <h2>Offline Pursuits</h2>
+        <h2>Outside of work</h2>
         <p>
-          I'm a big believer in continuous learning. Recently, I've been studying Korean (currently TOPIK Level 2) to challenge myself in a completely different linguistic framework. 
+          I'm a big believer in continuous learning. I'm currently studying
+          Korean and sitting at TOPIK Level 2. Learning a language from scratch (especially one as structurally different as Korean) keeps me
+          genuinely humble about how hard communication is, which I think makes
+          me better at it professionally.
         </p>
         <p>
-          When I'm not auditing GA4 properties or architecting BigQuery databases, you can often find me giving back to the local community as a substitute teacher in the Manville, NJ area—a role that keeps my presentation and adaptability skills incredibly sharp.
+          I also work as a substitute teacher in the Manville, NJ area. It's a
+          good reminder that the ability to read a room and adjust on the fly
+          matters more than any technical credential.
         </p>
-        
+
         <div class="mt-12 not-prose">
-          <a href="/contact" class="inline-flex items-center justify-center bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors">
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors"
+          >
             Let's connect
           </a>
         </div>
@@ -50,17 +79,33 @@ const pageDescription = "Learn more about the person behind the analytics.";
 
       {/* The Image (Placeholder) */}
       <div class="md:col-span-5 md:sticky md:top-24">
-        <div class="aspect-[4/5] bg-zinc-100 rounded-3xl overflow-hidden border border-zinc-200 relative">
-          {/* Replace this div with an actual <img /> or Astro <Image /> component later */}
-          <div class="absolute inset-0 flex flex-col items-center justify-center text-zinc-400 p-8 text-center">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 mb-4 opacity-50">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+        <div
+          class="aspect-[4/5] bg-zinc-100 rounded-3xl overflow-hidden border border-zinc-200 relative"
+        >
+          {
+            /* Replace this div with an actual <img /> or Astro <Image /> component later */
+          }
+          <div
+            class="absolute inset-0 flex flex-col items-center justify-center text-zinc-400 p-8 text-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-12 h-12 mb-4 opacity-50"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+              ></path>
             </svg>
-            <span class="text-sm font-medium">Drop your headshot here.<br/>(Recommend 800x1000px)</span>
+            <img src="sg-anime.jpg" alt="Scott Gruber anime image">
           </div>
         </div>
       </div>
-
     </div>
   </article>
 </BaseLayout>

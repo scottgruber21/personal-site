@@ -1,83 +1,135 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import CaseStudyCard from '../components/CaseStudyCard.astro';
-import { getCollection } from 'astro:content';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CaseStudyCard from "../components/CaseStudyCard.astro";
+import { getCollection } from "astro:content";
 
 const pageTitle = "Scott Gruber | Technical Analytics & MarTech";
-const pageDescription = "Architecting high-performance MarTech stacks with a journalist's eye for detail.";
+const pageDescription =
+  "Architecting high-performance MarTech stacks with a journalist's eye for detail.";
 
 // Fetch featured case studies
-const featuredWork = await getCollection('case-studies', ({ data }) => {
+const featuredWork = await getCollection("case-studies", ({ data }) => {
   return data.featured === true;
 });
-featuredWork.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+featuredWork.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-  
   <section class="pt-24 pb-20">
-    <h1 class="text-5xl md:text-8xl font-semibold tracking-tighter text-zinc-900 mb-8 leading-[0.9]">
-      Analytics with a <br />
-      <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">
-        journalist’s eye.
+    <h1
+      class="text-5xl md:text-7xl font-semibold tracking-tighter text-zinc-900 mb-8 leading-[0.9]"
+    >
+      Digital marketing<br />
+      <span
+        class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500"
+      >
+        with a journalist’s eye.
       </span>
     </h1>
-    <p class="text-xl md:text-2xl text-zinc-500 font-medium max-w-2xl leading-relaxed">
-      I bridge the gap between complex technical architectures and the human stories they represent. From auditing SEO for global brands to mastering Korean, I’m driven by making the complex, clear.
+    <p
+      class="text-xl md:text-2xl text-zinc-500 font-medium max-w-2xl leading-relaxed"
+    >
+     I approach every audit, website, and dashboard like a story that needs to make sense to a human.
     </p>
   </section>
 
   <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-32">
-    
-    <div class="md:col-span-2 p-10 bg-zinc-900 rounded-[2.5rem] text-white flex flex-col justify-between min-h-[320px]">
+    <div
+      class="md:col-span-2 p-10 bg-zinc-900 rounded-[2.5rem] text-white flex flex-col justify-between min-h-[320px]"
+    >
       <div class="space-y-4">
-        <span class="text-zinc-400 text-sm font-bold uppercase tracking-widest">Currently Building</span>
-        <h2 class="text-3xl font-semibold tracking-tight">Technical MarTech stacks in Astro, BigQuery, and GTM.</h2>
+        <span class="text-zinc-400 text-sm font-bold uppercase tracking-widest"
+          >Currently Building</span
+        >
+        <h2 class="text-3xl font-semibold tracking-tight">
+          High-performing websites in WordPress.
+        </h2>
       </div>
       <div class="flex flex-wrap gap-3">
-        {['Server-Side GTM', 'Python Automation', 'SQL', 'Schema.org'].map(tag => (
-          <span class="px-4 py-1.5 bg-white/10 rounded-full text-xs font-medium backdrop-blur-md border border-white/10">
-            {tag}
-          </span>
-        ))}
+        {
+          ["WordPress", "JavaScript", "SQL", "SEO"].map((tag) => (
+            <span class="px-4 py-1.5 bg-white/10 rounded-full text-xs font-medium backdrop-blur-md border border-white/10">
+              {tag}
+            </span>
+          ))
+        }
       </div>
     </div>
 
-    <div class="p-10 bg-blue-50 rounded-[2.5rem] flex flex-col justify-between border border-blue-100">
-      <span class="text-blue-600/50 text-sm font-bold uppercase tracking-widest">In the Community</span>
+    <div
+      class="p-10 bg-blue-50 rounded-[2.5rem] flex flex-col justify-between border border-blue-100"
+    >
+      <span class="text-blue-600/50 text-sm font-bold uppercase tracking-widest"
+        >In the Community</span
+      >
       <p class="text-xl font-semibold text-blue-900 leading-snug">
         Teaching Social Studies at Manville and Hillsborough High Schools.
       </p>
       <div class="text-blue-600">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          class="w-8 h-8"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
+          ></path>
         </svg>
       </div>
     </div>
 
-    <div class="p-10 bg-zinc-50 rounded-[2.5rem] flex flex-col justify-between border border-zinc-100">
-      <span class="text-zinc-400 text-sm font-bold uppercase tracking-widest">Learning</span>
+    <div
+      class="p-10 bg-zinc-50 rounded-[2.5rem] flex flex-col justify-between border border-zinc-100"
+    >
+      <span class="text-zinc-400 text-sm font-bold uppercase tracking-widest"
+        >Learning</span
+      >
       <div>
         <h3 class="text-4xl font-bold text-zinc-900 mb-1">한국어</h3>
         <p class="text-zinc-500 font-medium italic">Targeting TOPIK Level 4</p>
       </div>
-      <p class="text-sm text-zinc-400 font-medium">Linguistic challenges build better analytical logic.</p>
+      <p class="text-sm text-zinc-400 font-medium">
+        Linguistic challenges build better analytical logic.
+      </p>
     </div>
 
-    <div class="md:col-span-2 p-10 bg-zinc-50 rounded-[2.5rem] border border-zinc-100 flex flex-col md:flex-row md:items-center justify-between gap-8">
+    <div
+      class="md:col-span-2 p-10 bg-zinc-50 rounded-[2.5rem] border border-zinc-100 flex flex-col md:flex-row md:items-center justify-between gap-8"
+    >
       <div class="space-y-4">
-        <span class="text-zinc-400 text-sm font-bold uppercase tracking-widest">Insights</span>
-        <h2 class="text-2xl font-semibold tracking-tight text-zinc-900">Documenting the future of first-party data and privacy.</h2>
-        <a href="/blog" class="inline-block text-blue-600 font-medium text-sm">Read the blog &rarr;</a>
+        <span class="text-zinc-400 text-sm font-bold uppercase tracking-widest"
+          >Insights</span
+        >
+        <h2 class="text-2xl font-semibold tracking-tight text-zinc-900">
+          Documenting the future of digital marketing and data.
+        </h2>
+        <a href="/blog" class="inline-block text-blue-600 font-medium text-sm"
+          >Read the blog &rarr;</a
+        >
       </div>
-      <div class="hidden md:block w-32 h-32 bg-zinc-200 rounded-2xl rotate-3 border-4 border-white shadow-sm"></div>
+      <div
+        class="hidden md:block w-32 h-32 bg-zinc-200 rounded-2xl rotate-3 border-4 border-white shadow-sm"
+      >
+      </div>
     </div>
   </section>
 
   <section class="py-32 border-t border-zinc-100">
     <blockquote class="max-w-4xl">
-      <p class="text-4xl md:text-6xl font-semibold tracking-tighter text-zinc-900 leading-[1.1]">
-        "If the data doesn't lead to a <span class="text-zinc-400">decision</span>, it's just <span class="text-zinc-400 italic font-light">noise.</span>"
+      <p
+        class="text-4xl md:text-6xl font-semibold tracking-tighter text-zinc-900 leading-[1.1]"
+      >
+        "Every dashboard is a <span class="text-zinc-400"
+          >story.</span
+        > I make sure it's the <span class="text-zinc-400 italic font-light">right one.</span
+        >"
       </p>
     </blockquote>
   </section>
@@ -85,24 +137,33 @@ featuredWork.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   <section id="work" class="py-32 border-t border-zinc-100">
     <div class="flex items-end justify-between mb-12">
       <div>
-        <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 mb-4">Evidence of Impact</h2>
-        <p class="text-zinc-500 font-medium max-w-md">Technical deep-dives into systems I've architected to drive measurable growth.</p>
+        <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 mb-4">
+          Evidence of Impact
+        </h2>
+        <p class="text-zinc-500 font-medium max-w-md">
+          Technical deep-dives into systems I've architected to drive measurable
+          growth.
+        </p>
       </div>
-      <a href="/case-studies" class="text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors">
+      <a
+        href="/case-studies"
+        class="text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+      >
         Full Portfolio &rarr;
       </a>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {featuredWork.map((study) => (
-        <CaseStudyCard 
-          title={study.data.title}
-          description={study.data.description}
-          metric={study.data.metric}
-          href={`/case-studies/${study.id}`} 
-        />
-      ))}
+      {
+        featuredWork.map((study) => (
+          <CaseStudyCard
+            title={study.data.title}
+            description={study.data.description}
+            metric={study.data.metric}
+            href={`/case-studies/${study.id}`}
+          />
+        ))
+      }
     </div>
   </section>
-
 </BaseLayout>
