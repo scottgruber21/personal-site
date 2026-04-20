@@ -11,13 +11,13 @@ interface Props {
   sd?: object;
 }
 
-const { title, description, sd } = Astro.props;
+const { title, description, sd, image } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} sd={sd} />
+    <BaseHead title={title} description={description} sd={sd} image={image} />
   </head>
   <body class="bg-white text-zinc-900 antialiased min-h-screen flex flex-col selection:bg-blue-100 selection:text-blue-900">
     
