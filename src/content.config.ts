@@ -22,6 +22,7 @@ const blog = defineCollection({
     pubDate: z.coerce.date(),
     author: z.string().default('Gruber'),
     tags: z.array(z.string()).default([]),
+    image: z.string().optional(),
   }),
 });
 
