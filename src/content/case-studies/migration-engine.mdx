@@ -16,13 +16,13 @@ Manual downloads could have taken weeks, if not months. That's a project-killer.
 I decided to treat the live website like a public library. Since I couldn't get into the backend, I wrote a Python script to "harvest" the assets from the frontend. 
 
 ### The Web Scraper
-The script crawled all 4,000 product pages. It didn't just grab files; it looked at the page for the SKU and renamed every image and sell-sheet as it downloaded them. Everything was organized and ready for the new system before it even hit my computer.
+The script crawled all 4,000 product pages. Not only did it grab the files, it looked at the page for the SKU and renamed every image and sell-sheet as it downloaded them. Everything was organized and ready for the new system before it even hit my computer.
 
 ### The Box API Slog
-Moving the files was only half the battle. We used Box.com to host the assets for the new website, but every single file needed a public URL. Clicking through 20,000 files to set permissions manually would have taken months.
+Moving the files was only half the battle. We used Box.com to host the assets for the new website, but every single file needed a public URL. Clicking through at least 50,000 files to set permissions manually would have taken months.
 
 ### The Automated Fix
-I used the Box API to force a "Public" status on all 20,000 assets. The script then grabbed those new URLs and dumped them into a master spreadsheet. This became the backbone for our PIM (Product Information Management) upload.
+I used the Box API to force a "Public" status on all 50,000 assets. The script then grabbed those new URLs and dumped them into a master spreadsheet. This became the backbone for our PIM (Product Information Management) upload.
 
 ## The Result
 We turned a manual nightmare into a predictable process. When launch day came, every product had its documents and images exactly where they belonged. We didn't need permission from the home office, and we didn't have to miss our deadline.
